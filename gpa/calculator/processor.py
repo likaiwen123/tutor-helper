@@ -26,25 +26,26 @@ class Processor:
     def calc_gpa(self, student_id, options):
         total_credits = 0
         total_marks = 0.0
-        courses = {}
+        course_set = set()
         for grade_idx in self.storage.students[student_id].course_index_list:
             grade = self.storage.grades[grade_idx]
+            course_number = grade.course_number
+            credit = self.storage.courses[course_number].credit
             if grade.grade < 0:
                 continue
             if options.only_primary and grade.course_type != "一学位":
                 continue
-            if options.only_latest and grade.course_number in courses:
+            if options.only_latest and grade.course_number in course_set:
                 # all grades before will be zero.
-                total_marks += grade.grade
+                total_marks += grade.grade * credit
                 continue
             if len(options.course_classes) > 0 and grade.course_class not in options.course_classes:
                 continue
             if len(options.semesters) > 0 and grade.course_semester not in options.semesters:
                 continue
-            course_number = grade.course_number
-            credit = self.storage.courses[course_number].credit
             total_credits += credit
             total_marks += grade.grade * credit
+            course_set.add(course_number)
         if total_credits == 0:
             return 0.0
         return total_marks / total_credits
