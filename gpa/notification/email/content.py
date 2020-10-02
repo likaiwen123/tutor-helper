@@ -18,10 +18,11 @@ class Message:
         self._data = data
         self.content = ""
 
-    def prepare(self, template, class_number, grade_number):
+    def prepare(self, template, class_number, grade_number, sender):
         table = TableBuilder(self._data).build()
         self.content = template.replace("<name>", self.receiver.name).replace("<class number>", str(class_number)).\
-            replace("<grade number>", str(grade_number)).replace("<GPA table>", str(table))
+            replace("<grade number>", str(grade_number)).replace("<GPA table>", str(table)).\
+            replace("<sender name>", sender)
 
 
 class TableBuilder:
@@ -43,7 +44,7 @@ class TableBuilder:
 
 
 class ClassMessages:
-    def __init__(self, class_name, contact_file, data, grade_number):
+    def __init__(self, class_name, contact_file, data, grade_number, template=None):
         contacts = pd.DataFrame(pd.read_csv(contact_file))
         self.contacts = {}
         name_entry = "姓名"
@@ -58,8 +59,12 @@ class ClassMessages:
         self.number = len(data)
         self.data = data
         self.grade_number = grade_number
+        if template is None:
+            self.template = tpt.basic_template
+        else:
+            self.template = template
 
-    def build(self):
+    def build(self, sender):
         messages = []
         for i in range(self.number):
             slice = self.data.iloc[i]
@@ -69,6 +74,7 @@ class ClassMessages:
             else:
                 raise ValueError("Failed to get the email address of user {}".format(name))
             msg = Message(name, email, slice)
-            msg.prepare(template=tpt.basic_template, class_number=self.number, grade_number=self.grade_number)
+            msg.prepare(template=self.template, class_number=self.number, grade_number=self.grade_number,
+                        sender=sender)
             messages.append(msg)
         return messages

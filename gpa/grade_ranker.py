@@ -3,6 +3,7 @@ from calculator.writer import Writer
 from calculator.processor import Processor, Query, Options
 
 path = "./data.xlsx"
+output_path = "./ranks.xlsx"
 
 if __name__ == "__main__":
     data = Loader(path).load()
@@ -36,4 +37,4 @@ if __name__ == "__main__":
     # dg = Processor(data).build_df(queries, excludes=[2017000001, 2018000002])
 
     writer = Writer(dg)
-    writer.write_to_excel("result3.xlsx")
+    writer.write_to_excel(output_path)

@@ -85,4 +85,5 @@ class Loader:
                               course_type, re_enter)
                 storage.students[student_id].course_index_list.append(len(storage.grades))
                 storage.grades.append(grade)
+        print("Totally {} students found.".format(len(storage.students)))
         return storage
