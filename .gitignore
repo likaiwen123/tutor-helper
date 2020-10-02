@@ -1,7 +1,10 @@
 __pycache__
 .idea
 .code
+
 data
+data.xlsx
 address.csv
+ranks.xlsx
 
-
+.DS_Store
