@@ -1,5 +1,5 @@
 import smtplib
-from notification.email.content import User
+from gpa.notification.email.content import User
 from email.message import EmailMessage
 from email.headerregistry import Address
 
@@ -8,7 +8,7 @@ class SMTPSender:
     def __init__(self, server, port, user, password, sender=None):
         if sender is None:
             sender = (user.split("@")[0], user)
-        self.sender = sender
+        self.sender = (sender, user)
         self.account = (user, password)
         self.server = (server, port)
         self.smtp = None

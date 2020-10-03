@@ -1,6 +1,6 @@
-from calculator.loader import Loader
-from calculator.writer import Writer
-from calculator.processor import Processor, Query, Options
+from gpa.calculator.loader import Loader
+from gpa.calculator.writer import Writer
+from gpa.calculator.processor import Processor, Query, Options
 
 path = "./data.xlsx"
 output_path = "./ranks.xlsx"

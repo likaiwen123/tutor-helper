@@ -1,6 +1,6 @@
 import pandas as pd
-import notification.email.template as tpt
-import HtmlTable.HTML as HTML
+import gpa.notification.email.template as tpt
+import gpa.table.HTML as HTML
 
 
 class User:

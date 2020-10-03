@@ -3,7 +3,7 @@
 """
 HTML.py - v0.04 2009-07-28 Philippe Lagadec
 
-This module provides a few classes to easily generate HTML code such as tables
+This module provides a few classes to easily generate HTML code such as table
 and lists.
 
 Project website: http://www.decalage.info/python/html
@@ -20,7 +20,7 @@ __author__  = 'Philippe Lagadec'
 
 # Copyright Philippe Lagadec - see http://www.decalage.info/contact for contact info
 #
-# This module provides a few classes to easily generate HTML tables and lists.
+# This module provides a few classes to easily generate HTML table and lists.
 #
 # This software is governed by the CeCILL license under French law and
 # abiding by the rules of distribution of free software.  You can  use,
@@ -56,7 +56,7 @@ __author__  = 'Philippe Lagadec'
 
 # 2008-10-06 v0.01 PL: - First version
 # 2008-10-13 v0.02 PL: - added cellspacing and cellpadding to table
-#                      - added functions to ease one-step creation of tables
+#                      - added functions to ease one-step creation of table
 #                        and lists
 # 2009-07-21 v0.03 PL: - added column attributes and styles (first attempt)
 #                        (thanks to an idea submitted by Michal Cernoevic)
@@ -463,7 +463,7 @@ if __name__ == '__main__':
             ['Carpenter',   'Jack',         47,    7],
             ['Johnson',     'Paul',         62,    10.55],
         ]
-    htmlcode = HTML.table(table_data,
+    htmlcode = table(table_data,
         header_row = ['Last name',   'First name',   'Age', 'Score'],
         col_width=['', '20%', '10%', '10%'],
         col_align=['left', 'center', 'right', 'char'],

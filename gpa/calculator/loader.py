@@ -3,8 +3,8 @@ import glob
 import math
 from openpyxl import load_workbook
 import pandas as pd
-from calculator.models import Student, Course, Grade
-from calculator.storage import Storage
+from gpa.calculator.models import Student, Course, Grade
+from gpa.calculator.storage import Storage
 
 
 class Loader:

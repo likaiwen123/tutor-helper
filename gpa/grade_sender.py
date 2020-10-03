@@ -1,6 +1,6 @@
 import pandas as pd
-from notification.email.content import ClassMessages
-from notification.email.smtp import SMTPSender
+from gpa.notification.email.content import ClassMessages
+from gpa.notification.email.smtp import SMTPSender
 
 rank_file = "ranks.xlsx"
 class_name = "工物80"
@@ -14,7 +14,7 @@ user = "your Tsinghua Email address"  # for example, abc18@mails.tsinghua.edu.cn
 password = "your password"  # DO NOT push your real password to your fork or any public places.
 
 # The name displayed in the email
-display_name = "Kaiwen Li"
+display_name = "李凯文"
 sender_name = "李凯文"
 
 # The customized template of the email content.

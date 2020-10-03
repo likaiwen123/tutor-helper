@@ -8,3 +8,7 @@ address.csv
 ranks.xlsx
 
 .DS_Store
+
+dist
+build
+*.egg-info
