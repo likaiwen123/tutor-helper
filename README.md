@@ -19,6 +19,12 @@
 
 **目前暂无打包成可执行程序的计划，后面有时间再搞吧^_^。**
 
+## Installation
+
+下载后，直接使用`python setup.py install`即可安装该`package`，后面的
+操作，可以将`grade_ranker.py`和`grade_sender.py`复制到你需要的地方按照
+下面的方式使用。
+
 ## Brief
 
 1. 进入`gpa`文件夹，适当修改`grade_ranker.py`，使用`Python`运行即可。
