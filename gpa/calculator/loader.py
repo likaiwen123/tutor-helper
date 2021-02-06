@@ -12,7 +12,7 @@ class Loader:
         if os.path.isdir(path):
             data_files = glob.glob(os.path.join(path, '*'))
             self.data_files = [f for f in data_files if f[-5:] == ".xlsx"]
-        elif os.path.isfile(path):
+        elif os.path.isfile(path) and path[-5:] == ".xlsx":
             self.data_files = [path]
         else:
             raise TypeError("Path {} should be a valid file or directory.".format(path))

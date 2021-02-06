@@ -1,11 +1,11 @@
 __pycache__
 .idea
 .code
+.vscode
 
 data
-data.xlsx
+*.xlsx
 address.csv
-ranks.xlsx
 
 .DS_Store
 

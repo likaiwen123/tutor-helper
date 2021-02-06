@@ -58,10 +58,8 @@ class Processor:
         df.drop(df[df['学号'].map(lambda x: x in excludes)].index, inplace=True)
 
         df[name] = df.apply(func=lambda row: self.calc_gpa(row['学号'], options), axis=1)
-        df.sort_values(by=name, ascending=False, inplace=True)
-        df.reset_index(drop=True, inplace=True)
-        df[name + "排名"] = df.index + 1
-        df[name + "班级排名"] = df.groupby('班级')[name + "排名"].rank(method='dense').astype(int)
+        df[name + "排名"] = df[name].rank(method='min', ascending=False).astype(int)
+        df[name + "班级排名"] = df.groupby('班级')[name + "排名"].rank(method='min').astype(int)
         return df
 
     def build_df(self, queries, excludes=None):
@@ -78,4 +76,4 @@ class Processor:
             sdf = self.__build_single_df(query.name, query.options, excludes)
             df = df.merge(sdf)
 
-        return df.groupby(by='班级')
+        return df, df.groupby(by='班级')
