@@ -26,4 +26,4 @@ if __name__ == "__main__":
                              template=template).build(sender=sender_name)
     sender = SMTPSender(server, port, user, password, sender=display_name)
     sender.connect()
-    sender.send(subject="大二成绩通知", messages=messages)
+    sender.send(subject="大三上成绩通知", messages=messages, dry_run=False)
