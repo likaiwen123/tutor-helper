@@ -72,7 +72,11 @@ class Loader:
                 elif storage.courses[course_number].credit != course_credit:
                     raise ValueError("Different credits found for Course ID {}".format(course_number))
 
-                course_grade = data[self.meta["course_grade"]]
+                course_grade_val = data[self.meta["course_grade"]]
+                if course_grade_val == '*':
+                    # grade has not been provided.
+                    continue
+                course_grade = float(course_grade_val)
                 if math.isnan(course_grade):
                     course_grade = -1
                 course_grade_mark = data[self.meta["course_grade_mark"]]
