@@ -3,8 +3,13 @@ __pycache__
 .code
 .vscode
 
+# conda virtual env
+.venv
+venv
+
 data
 *.xlsx
+*.xls
 address.csv
 
 .DS_Store
