@@ -11,9 +11,10 @@
 # Requirements
 
 - Python 3.7+
-   - pandas
-   - openpyxl
-   - smtplib
+   - pandas >= 0.25.3
+   - openpyxl >= 2.4.4
+   - xlrd >= 1.1.0
+   - smtplib  # Python自带，Python 3.6的smtplib发送邮件时，邮件地址前的备注名如果是中文，可能会乱码，3.7没问题
 
 # Usage
 

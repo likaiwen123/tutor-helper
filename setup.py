@@ -19,5 +19,10 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    url='https://github.com/likaiwen123/tutor-helper', install_requires=['pandas', 'openpyxl']
+    url='https://github.com/likaiwen123/tutor-helper',
+    install_requires=[
+        'pandas>=0.25.3',
+        'openpyxl>=2.4.4',
+        "xlrd>=1.1.0",
+    ]
 )
