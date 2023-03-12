@@ -131,6 +131,11 @@
 ![邮件头](./img/email-header.png)
 ![邮件内容](./img/email-content.png)
 
+为以防万一，可以将`grade_sender.py`中的`dry_run`置为`True`，此时邮件会只发第一封，且发送到发件人的邮箱。
+
+注意：
+- <font color="red">Python3部分版本对发件人和收件人姓名中带有中文或其他字符的支持有问题，会导致正文乱码，目前测试来看3.7.3有问题，3.7.16没问题</font>
+
 # Known Issues or Unimplemented Features
 
 成绩排名部分：
